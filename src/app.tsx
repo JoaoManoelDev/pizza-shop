@@ -1,7 +1,9 @@
+import { Button } from "@/components/ui/button"
+
 export const App = () => {
   return (
-    <>
-      Hello World
-    </>
+    <div className="flex items-center justify-center h-screen">
+      <Button>Click me!</Button>
+    </div>
   )
 }
