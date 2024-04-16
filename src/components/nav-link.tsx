@@ -10,8 +10,8 @@ export const NavLink = (props: NavLinkProps) => {
       data-current={pathname === props.to}
       {...props}
       className="group flex h-9 w-9 items-center justify-center text-sm
-      font-medium text-muted-foreground hover:text-foreground transition-colors
-      data-[current=true]:text-foreground data-[current=true]:bg-muted-foreground/15
+      font-medium text-muted-foreground hover:bg-primary/90 hover:text-foreground transition-colors
+      data-[current=true]:text-foreground data-[current=true]:bg-primary/90
       rounded-lg"
     /> 
   )
