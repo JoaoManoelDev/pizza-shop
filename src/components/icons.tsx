@@ -1,5 +1,11 @@
-import { Pizza } from "lucide-react"
+import {
+  Home,
+  Pizza,
+  UtensilsCrossed
+} from "lucide-react"
 
 export const Icons = {
-  pizza: Pizza
+  pizza: Pizza,
+  home: Home,
+  utensilsCrossed: UtensilsCrossed,
 }
