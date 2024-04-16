@@ -4,7 +4,7 @@ import { Icons } from "@/components/icons"
 
 export const AuthLayout = () => {
   return (
-    <div className="min-h-screen grid grid-cols-2">
+    <div className="min-h-screen grid grid-cols-2 antialiased">
       <div className="h-full border-r border-foreground/5 bg-muted p-10 text-muted-foreground flex flex-col justify-between">
         <div className="flex items-center gap-3 text-lg text-foreground">
           <Icons.pizza className="w-5 h-5" />
