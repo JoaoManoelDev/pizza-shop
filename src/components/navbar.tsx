@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/tooltip"
 import { NavLink } from "@/components/nav-link"
 import { ThemeToggle } from "@/components/theme/theme-toggle"
+import { AccountMenu } from "./account-menu"
 
 export const Navbar = () => {
   return (
@@ -44,6 +45,7 @@ export const Navbar = () => {
       </div>
 
       <div className="flex flex-col items-center gap-4 px-2 sm:py-5 mt-auto">
+        <AccountMenu />
         <ThemeToggle />
       </div>
     </nav>
