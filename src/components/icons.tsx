@@ -1,6 +1,6 @@
 import {
   Building,
-  ChevronDown,
+  ChevronRight,
   Home,
   LogOut,
   Moon,
@@ -15,7 +15,7 @@ export const Icons = {
   utensilsCrossed: UtensilsCrossed,
   sun: Sun,
   moon: Moon,
-  chevronDown: ChevronDown,
+  chevronRight: ChevronRight,
   building: Building,
   logOut: LogOut
 }
