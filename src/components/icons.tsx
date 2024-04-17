@@ -1,10 +1,10 @@
 import {
   Building,
-  ChevronRight,
   Home,
   LogOut,
   Moon,
   Pizza,
+  Settings,
   Sun,
   UtensilsCrossed
 } from "lucide-react"
@@ -15,7 +15,7 @@ export const Icons = {
   utensilsCrossed: UtensilsCrossed,
   sun: Sun,
   moon: Moon,
-  chevronRight: ChevronRight,
+  settings: Settings,
   building: Building,
   logOut: LogOut
 }

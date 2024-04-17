@@ -14,7 +14,7 @@ export const AccountMenu = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size="iconMd" className="flex items-center gap-2 select-none">
-          <Icons.chevronRight className="w-4 h-4" />
+          <Icons.settings className="w-5 h-5" />
         </Button>
       </DropdownMenuTrigger>
 
