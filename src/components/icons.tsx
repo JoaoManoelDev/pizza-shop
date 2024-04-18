@@ -1,6 +1,7 @@
 import {
   ArrowRight,
   Ban,
+  BarChart,
   Building,
   ChevronLeft,
   ChevronRight,
@@ -37,5 +38,6 @@ export const Icons = {
   chevronsRight: ChevronsRight,
   chevronRight: ChevronRight,
   dollar: DollarSign,
-  ban: Ban
+  ban: Ban,
+  barChart: BarChart
 }
