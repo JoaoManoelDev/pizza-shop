@@ -10,6 +10,7 @@ import {
   TableRow
 } from "@/components/ui/table"
 import { Pagination } from "@/components/pagination"
+import { Heading } from "@/components/heading"
 
 export const Orders = () => {
   return (
@@ -17,7 +18,7 @@ export const Orders = () => {
       <Helmet title="Pedidos" />
 
       <div className="flex flex-col gap-4">
-        <h1 className="text-3xl font-bold tracking-tighter">Pedidos</h1>
+        <Heading title="Pedidos" />
 
         <div className="space-y-2.5">
           <OrderTableFilters />
