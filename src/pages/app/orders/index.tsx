@@ -1,16 +1,14 @@
 import { Helmet } from "react-helmet-async"
 
-import { Input } from "@/components/ui/input"
+import { OrderTableRow } from "./order-table-row"
+import { OrderTableFilters } from "./order-table-filters"
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow
 } from "@/components/ui/table"
-import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
 
 export const Orders = () => {
   return (
@@ -22,10 +20,7 @@ export const Orders = () => {
       </div>
 
       <div className="space-y-2.5">
-        <form className="flex items-center gap-2">
-          <span className="text-sm font-semibold">Filtros</span>
-          <Input placeholder="Nome do cliente" className="h-8 w-[320px]" />
-        </form>
+        <OrderTableFilters />
 
         <div className="border rounded-md">
           <Table>
@@ -45,53 +40,7 @@ export const Orders = () => {
             <TableBody>
               {Array.from({ length: 10 }).map((_, i) => {
                 return (
-                  <TableRow key={i}>
-                    <TableCell>
-                      <Button variant="outline" size="xs">
-                        <Icons.search className="w-3 h-3" />
-                        <span className="sr-only">Detalhes do pedido</span>
-                      </Button>
-                    </TableCell>
-
-                    <TableCell className="font-mono text-xs font-medium">
-                      gdwe54754456
-                    </TableCell>
-
-                    <TableCell className="text-muted-foreground">
-                      15 minutos
-                    </TableCell>
-
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-slate-400" />
-                        <span className="font-medium text-muted-foreground">
-                          Pendente
-                        </span>
-                      </div>
-                    </TableCell>
-
-                    <TableCell className="font-medium">
-                      João Manoel
-                    </TableCell>
-
-                    <TableCell className="font-medium">
-                      R$ 159,90
-                    </TableCell>
-
-                    <TableCell>
-                      <Button variant="outline" size="xs">
-                        <Icons.arrowRight className="w-3 h-3 mr-1" />
-                        Aprovar
-                      </Button>
-                    </TableCell>
-
-                    <TableCell>
-                      <Button variant="ghost" size="xs">
-                        <Icons.x className="w-3 h-3 mr-1" />
-                        Cancelar
-                      </Button>
-                    </TableCell>
-                  </TableRow>
+                  <OrderTableRow key={i} />
                 )
               })}
             </TableBody>
