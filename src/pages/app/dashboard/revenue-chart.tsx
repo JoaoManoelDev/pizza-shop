@@ -4,6 +4,7 @@ import {
   XAxis,
   YAxis,
   Line,
+  CartesianGrid,
 } from "recharts"
 
 import colors from "tailwindcss/colors"
@@ -62,6 +63,8 @@ export const RevenueChart = () => {
                 })
               }
             />
+
+            <CartesianGrid vertical={false} className="stroke-muted" />
 
             <Line
               type="linear"
