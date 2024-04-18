@@ -1,18 +1,26 @@
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
+import { Dialog, DialogTrigger } from "@/components/ui/dialog"
 import {
   TableCell,
   TableRow
 } from "@/components/ui/table"
+import { OrderDetails } from "./order-details"
 
 export const OrderTableRow = () => {
   return (
     <TableRow>
       <TableCell>
-        <Button variant="outline" size="xs">
-          <Icons.search className="w-3 h-3" />
-          <span className="sr-only">Detalhes do pedido</span>
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" size="xs">
+              <Icons.search className="w-3 h-3" />
+              <span className="sr-only">Detalhes do pedido</span>
+            </Button>
+          </DialogTrigger>
+
+          <OrderDetails />
+        </Dialog>
       </TableCell>
 
       <TableCell className="font-mono text-xs font-medium">
