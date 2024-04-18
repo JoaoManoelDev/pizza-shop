@@ -1,6 +1,10 @@
 import {
   ArrowRight,
   Building,
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
   Home,
   LogOut,
   Moon,
@@ -23,5 +27,9 @@ export const Icons = {
   logOut: LogOut,
   search: Search,
   x: X,
-  arrowRight: ArrowRight
+  arrowRight: ArrowRight,
+  chevronsLeft: ChevronsLeft,
+  chevronLeft: ChevronLeft,
+  chevronsRight: ChevronsRight,
+  chevronRight: ChevronRight,
 }
