@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async"
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { toast } from "sonner"
@@ -18,11 +18,17 @@ const signInForm = z.object({
 type SingInForm = z.infer<typeof signInForm>
 
 export const SignIn = () => {
+  const [searchParams] = useSearchParams()
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitting }
-  } = useForm<SingInForm>()
+  } = useForm<SingInForm>({
+    defaultValues: {
+      email: searchParams.get("email") ?? ""
+    }
+  })
 
   const { mutateAsync: authenticate } = useMutation({
     mutationFn: signIn,
