@@ -14,6 +14,7 @@ import {
   Pizza,
   Search,
   Settings,
+  Store,
   Sun,
   Utensils,
   UtensilsCrossed,
@@ -27,7 +28,6 @@ export const Icons = {
   utensils: Utensils,
   sun: Sun,
   moon: Moon,
-  settings: Settings,
   building: Building,
   logOut: LogOut,
   search: Search,
@@ -39,5 +39,6 @@ export const Icons = {
   chevronRight: ChevronRight,
   dollar: DollarSign,
   ban: Ban,
-  barChart: BarChart
+  barChart: BarChart,
+  store: Store,
 }
