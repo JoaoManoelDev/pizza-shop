@@ -13,6 +13,8 @@ import { Icons } from "@/components/icons"
 import { getProfile } from "@/api/get-profile"
 import { getManagedRestaurant } from "@/api/get-managed-restaurant"
 import { Skeleton } from "@/components/ui/skeleton"
+import { Dialog, DialogTrigger } from "@/components/ui/dialog"
+import { StoreProfileDialog } from "./store-profile-dialog"
 
 export const AccountMenu = () => {
   const { data: profile, isLoading: isLoadingProfile } = useQuery({
@@ -27,54 +29,60 @@ export const AccountMenu = () => {
     })
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="iconMd" className="flex items-center gap-2 select-none">
-          <Icons.store className="w-5 h-5" />
-        </Button>
-      </DropdownMenuTrigger>
+    <Dialog>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" size="iconMd" className="flex items-center gap-2 select-none">
+            <Icons.store className="w-5 h-5" />
+          </Button>
+        </DropdownMenuTrigger>
 
-      <DropdownMenuContent side="right" align="end" className="w-56">
+        <DropdownMenuContent side="right" align="end" className="w-56">
 
-        {isLoadingManagedRestaurant ? (
-          <Skeleton className="mx-auto w-40 h-6 my-2" />
-        ) : (
-          <p className="text-xl text-center font-bold">
-            {managedRestaurant?.name}
-          </p>
-        )}
-
-        <DropdownMenuSeparator />
-        
-        <DropdownMenuLabel className="flex flex-col">
-          {isLoadingProfile ? (
-            <div className="space-y-1.5">
-              <Skeleton className="w-32 h-3" />
-              <Skeleton className="w-24 h-2" />
-            </div>
+          {isLoadingManagedRestaurant ? (
+            <Skeleton className="mx-auto w-40 h-6 my-2" />
           ) : (
-            <>
-              <span>{profile?.name}</span>
-              <span className="text-xs font-normal text-muted-foreground">
-                {profile?.email}
-              </span>
-            </>
+            <p className="text-xl text-center font-bold">
+              {managedRestaurant?.name}
+            </p>
           )}
 
-        </DropdownMenuLabel>
+          <DropdownMenuSeparator />
 
-        <DropdownMenuSeparator />
+          <DropdownMenuLabel className="flex flex-col">
+            {isLoadingProfile ? (
+              <div className="space-y-1.5">
+                <Skeleton className="w-32 h-3" />
+                <Skeleton className="w-24 h-2" />
+              </div>
+            ) : (
+              <>
+                <span>{profile?.name}</span>
+                <span className="text-xs font-normal text-muted-foreground">
+                  {profile?.email}
+                </span>
+              </>
+            )}
 
-        <DropdownMenuItem>
-          <Icons.building className="w-4 h-4 mr-2" />
-          <span>Perfil da loja</span>
-        </DropdownMenuItem>
+          </DropdownMenuLabel>
 
-        <DropdownMenuItem className="text-rose-500 focus:text-rose-500">
-          <Icons.logOut className="w-4 h-4 mr-2" />
-          <span>Sair</span>
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+          <DropdownMenuSeparator />
+          
+          <DialogTrigger asChild>
+            <DropdownMenuItem>
+              <Icons.building className="w-4 h-4 mr-2" />
+              <span>Perfil da loja</span>
+            </DropdownMenuItem>
+          </DialogTrigger>
+
+          <DropdownMenuItem className="text-rose-500 focus:text-rose-500">
+            <Icons.logOut className="w-4 h-4 mr-2" />
+            <span>Sair</span>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      <StoreProfileDialog />
+    </Dialog>
   )
 }
