@@ -1,0 +1,6 @@
+Mutação -> Qualquer ação que não seja uma ação de listagem/retorno
+  Ex.: Criar algo, POST, PUT, DELETE
+
+- Local State   (useState)
+- Global State  (Zustand, Redux, Jotai)
+- HTTP State    (Dados HTTP)

@@ -13,7 +13,6 @@ import {
   Moon,
   Pizza,
   Search,
-  Settings,
   Store,
   Sun,
   Utensils,

@@ -10,7 +10,6 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { signIn } from "@/api/sign-in"
 
-
 const signInForm = z.object({
   email: z.string().email(),
 })

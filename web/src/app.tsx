@@ -15,7 +15,9 @@ export const App = () => {
         <Helmet titleTemplate="%s | Pizza Shop" />
         <Toaster />
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+          <RouterProvider router={router} future={{
+            v7_startTransition: true
+          }} />
         </QueryClientProvider>
       </ThemeProvider>
     </HelmetProvider>
