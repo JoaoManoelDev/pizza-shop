@@ -1,3 +1,6 @@
+import { formatDistanceToNow } from "date-fns"
+import { ptBR } from "date-fns/locale"
+
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogTrigger } from "@/components/ui/dialog"
@@ -6,8 +9,19 @@ import {
   TableRow
 } from "@/components/ui/table"
 import { OrderDetails } from "./order-details"
+import { OrderStatus } from "@/components/order-status"
 
-export const OrderTableRow = () => {
+interface OrderTableRowProps {
+  order: {
+    orderId: string
+    createdAt: string
+    status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered',
+    customerName: string
+    total: number
+  }
+}
+
+export const OrderTableRow = ({ order }: OrderTableRowProps) => {
   return (
     <TableRow>
       <TableCell>
@@ -24,28 +38,29 @@ export const OrderTableRow = () => {
       </TableCell>
 
       <TableCell className="font-mono text-xs font-medium">
-        gdwe54754456
+        {order.orderId}
       </TableCell>
 
       <TableCell className="text-muted-foreground">
-        15 minutos
+        {formatDistanceToNow(order.createdAt, {
+          locale: ptBR,
+          addSuffix: true
+        })}
       </TableCell>
 
       <TableCell>
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-slate-400" />
-          <span className="font-medium text-muted-foreground">
-            Pendente
-          </span>
-        </div>
+        <OrderStatus status={order.status} />
       </TableCell>
 
       <TableCell className="font-medium">
-        João Manoel
+        {order.customerName}
       </TableCell>
 
       <TableCell className="font-medium">
-        R$ 159,90
+        {order.total.toLocaleString('pt-br', {
+          style: 'currency',
+          currency: 'BRL'
+        })}
       </TableCell>
 
       <TableCell>
