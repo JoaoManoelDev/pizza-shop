@@ -1,7 +1,16 @@
+import { useQuery } from "@tanstack/react-query"
+
+import { getMonthCanceledOrdersAmount } from "@/api/get-month-canceled-orders-amount"
 import { Icons } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 export const MonthCanceledOrdersAmountCard = () => {
+  const { data: monthCanceledOrdersAmount } = useQuery({
+    queryKey: ['metrics', 'month-canceled-orders-amount'],
+    queryFn: getMonthCanceledOrdersAmount
+  })
+
   return (
     <Card>
       <CardHeader
@@ -14,12 +23,25 @@ export const MonthCanceledOrdersAmountCard = () => {
       </CardHeader>
 
       <CardContent className="space-y-1">
-        <span className="text-2xl font-bold tracking-tight">
-          20
-        </span>
-        <p className="text-sm text-muted-foreground">
-          <span className="text-emerald-500">-6%</span> em relação ao mês passado
-        </p>
+      {monthCanceledOrdersAmount && (
+          <>
+            <span className="text-2xl font-bold tracking-tight">
+              {monthCanceledOrdersAmount.amount.toLocaleString('pt-BR')}
+            </span>
+            <p className="text-sm text-muted-foreground flex items-center gap-1">
+              <span
+                className={cn(
+                  "text-rose-500",
+                  monthCanceledOrdersAmount.diffFromLastMonth < 0 && 'text-emerald-500'
+                )}
+              >
+                {monthCanceledOrdersAmount.diffFromLastMonth > 0 && '+'} {monthCanceledOrdersAmount.diffFromLastMonth}%
+              </span>
+
+              <span>em relação a ontem</span>
+            </p>
+          </>
+        )}
       </CardContent>
     </Card>
   )
