@@ -1,3 +1,4 @@
+import { OrderStatus } from "@/components/order-status"
 import { api } from "@/lib/axios"
 
 interface GetOrderDetailsParams {
@@ -7,7 +8,7 @@ interface GetOrderDetailsParams {
 interface GetOrderDetailsResponse {
   id: string
   createdAt: string
-  status: 'pending' | 'canceled' | 'processing' | 'delivering' | 'delivered'
+  status: OrderStatus
   totalInCents: number
   customer: {
     name: string

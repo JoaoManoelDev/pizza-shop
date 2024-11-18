@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-type OrderStatus =
+export type OrderStatus =
   | 'pending'
   | 'canceled'
   | 'processing'
