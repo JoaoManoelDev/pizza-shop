@@ -22,6 +22,7 @@ import {
 import { getDailyRevenueInPeriod } from "@/api/get-daily-revenue-in-period"
 import { Label } from "@/components/ui/label"
 import { DateRangePicker } from "@/components/ui/date-range-picker"
+import { Loader2 } from "lucide-react"
 
 
 export const RevenueChart = () => {
@@ -64,7 +65,7 @@ export const RevenueChart = () => {
       </CardHeader>
 
       <CardContent>
-        {chartDate && (
+        {chartDate ? (
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={chartDate} style={{ fontSize: 12 }}>
               <XAxis
@@ -98,6 +99,10 @@ export const RevenueChart = () => {
               />
             </LineChart>
           </ResponsiveContainer>
+        ) : (
+          <div className="flex h-[240px] w-full items-center justify-center">
+            <Loader2 className="h-10 w-10 text-muted-foreground animate-spin" />
+          </div>
         )}
       </CardContent>
     </Card>
