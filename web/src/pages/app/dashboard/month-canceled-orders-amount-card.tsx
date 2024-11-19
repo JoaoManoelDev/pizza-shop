@@ -4,6 +4,7 @@ import { getMonthCanceledOrdersAmount } from "@/api/get-month-canceled-orders-am
 import { Icons } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { MetricCardSkeleton } from "@/components/metric-card-skeleton"
 
 export const MonthCanceledOrdersAmountCard = () => {
   const { data: monthCanceledOrdersAmount } = useQuery({
@@ -23,7 +24,7 @@ export const MonthCanceledOrdersAmountCard = () => {
       </CardHeader>
 
       <CardContent className="space-y-1">
-      {monthCanceledOrdersAmount && (
+      {monthCanceledOrdersAmount ? (
           <>
             <span className="text-2xl font-bold tracking-tight">
               {monthCanceledOrdersAmount.amount.toLocaleString('pt-BR')}
@@ -41,6 +42,8 @@ export const MonthCanceledOrdersAmountCard = () => {
               <span>em relação a ontem</span>
             </p>
           </>
+        ): (
+          <MetricCardSkeleton />
         )}
       </CardContent>
     </Card>

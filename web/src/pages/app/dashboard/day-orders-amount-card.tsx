@@ -4,6 +4,7 @@ import { Icons } from "@/components/icons"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { getDayOrdersAmount } from "@/api/get-day-orders-amount"
 import { cn } from "@/lib/utils"
+import { MetricCardSkeleton } from "@/components/metric-card-skeleton"
 
 export const DayOrdersAmountCard = () => {
   const { data: dayOrdersAmount } = useQuery({
@@ -23,7 +24,7 @@ export const DayOrdersAmountCard = () => {
       </CardHeader>
 
       <CardContent className="space-y-1">
-        {dayOrdersAmount && (
+        {dayOrdersAmount ? (
           <>
             <span className="text-2xl font-bold tracking-tight">
               {dayOrdersAmount.amount.toLocaleString('pt-BR')}
@@ -41,6 +42,8 @@ export const DayOrdersAmountCard = () => {
               <span>em relação a ontem</span>
             </p>
           </>
+        ) : (
+          <MetricCardSkeleton />
         )}
       </CardContent>
     </Card>
