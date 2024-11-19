@@ -35,7 +35,7 @@ export const DayOrdersAmountCard = () => {
                   dayOrdersAmount.diffFromYesterday >= 0 && 'text-emerald-500'
                 )}
               >
-                {dayOrdersAmount.diffFromYesterday >= 0 && '+'} {dayOrdersAmount.diffFromYesterday}%
+                {dayOrdersAmount.diffFromYesterday >= 0 && '+'}{dayOrdersAmount.diffFromYesterday}%
               </span>
 
               <span>em relação a ontem</span>
