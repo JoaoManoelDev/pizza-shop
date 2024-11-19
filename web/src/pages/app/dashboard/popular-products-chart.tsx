@@ -5,6 +5,7 @@ import {
   Cell,
 } from "recharts"
 import colors from "tailwindcss/colors"
+import { useQuery } from "@tanstack/react-query"
 
 import {
   Card,
@@ -13,16 +14,7 @@ import {
   CardTitle
 } from "@/components/ui/card"
 import { Icons } from "@/components/icons"
-import { useQuery } from "@tanstack/react-query"
 import { getPopularProducts } from "@/api/get-popular-products"
-
-const data = [
-  { product: "Mussarela", amount: 30 },
-  { product: "Pepperoni", amount: 50 },
-  { product: "Calabresa", amount: 20 },
-  { product: "Portuguesa", amount: 27 },
-  { product: "Chocolate", amount: 50 },
-]
 
 const COLORS = [
   colors.sky["500"],
