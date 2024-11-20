@@ -45,7 +45,7 @@ export const AccountMenu = () => {
     <Dialog>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="iconMd" className="flex items-center gap-2 select-none">
+          <Button variant="outline" size="icon" className="flex items-center gap-2 select-none">
             <Icons.store className="w-5 h-5" />
           </Button>
         </DropdownMenuTrigger>

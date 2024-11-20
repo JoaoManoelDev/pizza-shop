@@ -16,7 +16,7 @@ export function ThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="iconMd">
+        <Button variant="outline" size="icon">
           <Icons.sun className="w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Icons.moon className="absolute w-5 h-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
@@ -24,13 +24,10 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent side="right" align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+          Claro
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+          Escuro
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
